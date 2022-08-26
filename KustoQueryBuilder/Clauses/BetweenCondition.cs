@@ -1,13 +1,13 @@
 ﻿namespace KustoQueryBuilder.Clauses;
 
-public class BetweenCondition : AbstractClause
+public class BetweenClause : AbstractClause
 {
     public string Column { get; }
-    public string FromValue { get; }
-    public string ToValue { get; }
+    public string LeftRange { get; }
+    public string RightRange { get; }
     public bool Not { get; }
 
-    public BetweenCondition(string column, string fromValue, string toValue, bool not = false)
+    public BetweenClause(string column, string fromValue, string toValue, bool not = false)
     {
         if (string.IsNullOrEmpty(column))
         {
@@ -23,8 +23,8 @@ public class BetweenCondition : AbstractClause
         ArgumentNullException.ThrowIfNull(toValue);
 
         Column = column;
-        FromValue = fromValue;
-        ToValue = toValue;
+        RightRange = fromValue;
+        LeftRange = toValue;
         Not = not;
     }
 }
