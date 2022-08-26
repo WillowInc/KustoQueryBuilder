@@ -86,7 +86,7 @@ public class CompileTests
 
         var compiledQuery = query.Compile();
 
-        compiledQuery.Should().Be("table\n | order by column1 asc, column2 asc, column3 asc");
+        compiledQuery.Should().Be("table\n | order by column1, column2, column3");
     }
 
     [Fact]
