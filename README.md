@@ -7,7 +7,7 @@ It provides a fluent based API for building Kusto queries in code. Currently, it
 - Where, including where between and where in
 - Order by ascending and descending
 
-![GitHub CI](https://github.com/gordonc247/KustoQueryBuilder/blob/main/.github/workflows/dotnet.yml/badge.svg)
+[![.NET](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml)
 
 ## Examples
 
