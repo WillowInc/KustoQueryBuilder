@@ -1,3 +1,5 @@
+[![.GitHub CI](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml)
+
 # Kusto Query Builder
 
 Kusto Query Builder is a powerful query builder for the Kusto query language written in C#. It was inspired by the SqlKata project.
