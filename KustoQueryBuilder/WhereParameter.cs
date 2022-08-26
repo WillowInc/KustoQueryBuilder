@@ -9,7 +9,7 @@ public class WhereParameter : Parameter
     {
         if(string.IsNullOrEmpty(column))
         {
-            throw new ArgumentException(nameof(column));
+            throw new ArgumentNullException(nameof(column));
         }
 
         ArgumentNullException.ThrowIfNull(value);
