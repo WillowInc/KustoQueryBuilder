@@ -17,13 +17,13 @@ public partial class Query
     }
     public Query WhereBetween(string column, string fromValue, string toValue)
     {
-        _clauses.Add(new BetweenCondition(column, fromValue, toValue));
+        _clauses.Add(new BetweenClause(column, fromValue, toValue));
 
         return this;
     }
     public Query WhereNotBetween(string column, string fromValue, string toValue)
     {
-        _clauses.Add(new BetweenCondition(column, fromValue, toValue, true));
+        _clauses.Add(new BetweenClause(column, fromValue, toValue, true));
 
         return this;
     }    

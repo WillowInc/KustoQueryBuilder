@@ -39,8 +39,8 @@ public partial class Query
                 AppendBetweenClause(betweenClause);
                 break;
 
-            case NotBetweenClause notBetweenClause:
-                AppendNotBetweenClause(notBetweenClause);
+            case SortClause sortClause:
+                AppendSortClause(sortClause);
                 break;
 
             default:
@@ -48,14 +48,22 @@ public partial class Query
         }
     }
 
-    private void AppendNotBetweenClause(NotBetweenClause notBetweenClause)
+    //todo enable specifying sort order for each column
+    private void AppendSortClause(SortClause sortClause)
     {
-        Append($"where {notBetweenClause.Column} !between ({FormatValue(notBetweenClause.LeftRange)} .. {FormatValue(notBetweenClause.RightRange)})");
+        Append($"order by {string.Join(", ", sortClause.SortColums + (sortClause.IsDescending ? "desc" : "asc"))}");
     }
 
     private void AppendBetweenClause(BetweenClause betweenClause)
     {
-        Append($"where {betweenClause.Column} between ({FormatValue(betweenClause.LeftRange)} .. {FormatValue(betweenClause.RightRange)})");
+        if (betweenClause.Not)
+        {
+            Append($"where {betweenClause.Column} !between ({FormatValue(betweenClause.LeftRange)} .. {FormatValue(betweenClause.RightRange)})");
+        }
+        else
+        {
+            Append($"where {betweenClause.Column} between ({FormatValue(betweenClause.LeftRange)} .. {FormatValue(betweenClause.RightRange)})");
+        }
     }
 
     private void AppendInClause(InClause inClause)
