@@ -3,6 +3,5 @@ public enum Operation
 {
     Where,
     Project,
-    OrderBy,
-    OrderByDesc
+    OrderBy
 }

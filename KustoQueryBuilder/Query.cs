@@ -4,22 +4,16 @@ namespace KustoQueryBuilder;
 public partial class Query
 {
     public string TableName { get; }
-    private List<AbstractClause> _clauses = new();
+    private readonly List<AbstractClause> _clauses = new();
 
     public Query(string tableName)
     {
         if (string.IsNullOrWhiteSpace(tableName))
         {
-            throw new ArgumentException(nameof(tableName));
+            throw new ArgumentException("tableName parameter cannot be empty", nameof(tableName));
         }
+
         TableName = tableName;
     }
 
-    public Query Where(string column, string op, string value)
-    {
-
-        _clauses.Add(new BasicCondition(column, op, value));
-
-        return this;
-    }
 }
