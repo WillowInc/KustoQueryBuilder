@@ -16,4 +16,11 @@ public partial class Query
 
         return this;
     }
+    
+    public Query WhereBetween(string column, string fromValue, string toValue)
+    {
+        _clauses.Add(new BetweenCondition(column, fromValue, toValue));
+
+        return this;
+    }
 }
