@@ -1,11 +1,7 @@
 ﻿namespace KustoQueryBuilder;
-public enum Operations
+public enum Operation
 {
-    Query,
     Where,
-    OrWhere,
-    WhereOperator,
-    OrWhereOperator,
     Project,
     OrderBy,
     OrderByDesc
