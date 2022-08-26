@@ -5,8 +5,9 @@ public class BetweenCondition : AbstractClause
     public string Column { get; }
     public string FromValue { get; }
     public string ToValue { get; }
+    public bool Not { get; }
 
-    public BetweenCondition(string column, string fromValue, string toValue)
+    public BetweenCondition(string column, string fromValue, string toValue, bool not = false)
     {
         if (string.IsNullOrEmpty(column))
         {
@@ -24,5 +25,6 @@ public class BetweenCondition : AbstractClause
         Column = column;
         FromValue = fromValue;
         ToValue = toValue;
+        Not = not;
     }
 }
