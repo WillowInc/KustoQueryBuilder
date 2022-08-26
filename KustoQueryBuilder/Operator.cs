@@ -2,7 +2,7 @@
 
 public static class Operator
 {
-    public const string EqualTo = "=";
+    public const string EqualTo = "==";
     public const string NotEqualTo = "!=";
     public const string LessThanEqual = "<=";
     public const string LessThan = "<";
