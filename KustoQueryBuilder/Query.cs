@@ -15,5 +15,4 @@ public partial class Query
 
         TableName = tableName;
     }
-
 }
