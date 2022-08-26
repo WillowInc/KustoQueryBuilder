@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Query.Complie.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Query.Complie.cs" />
+  </ItemGroup>
+
 </Project>

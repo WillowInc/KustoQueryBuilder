@@ -1,6 +1,6 @@
 namespace KustoQueryBuilder.UnitTests;
 
-public class UnitTest1
+public class QueryTests
 {
     [Fact]
     public void Test1()

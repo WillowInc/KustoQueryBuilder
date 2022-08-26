@@ -1,8 +1,10 @@
-﻿namespace KustoQueryBuilder;
+﻿using KustoQueryBuilder.Clauses;
+
+namespace KustoQueryBuilder;
 public partial class Query
 {
     public string TableName { get; }
-    private Dictionary<Operations, Parameter> _operationParameters = new();
+    private List<AbstractClause> _clauses = new();
 
     public Query(string tableName)
     {
@@ -13,10 +15,10 @@ public partial class Query
         TableName = tableName;
     }
 
-    public Query Where(string column, string value)
+    public Query Where(string column, string op, string value)
     {
 
-        _operationParameters.Add(Operations.Where, new WhereParameter(column, value));
+        _clauses.Add(new BasicCondition(column, op, value));
 
         return this;
     }
