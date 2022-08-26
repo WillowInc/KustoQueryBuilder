@@ -102,7 +102,7 @@ public partial class Query
                 return $"datetime({dateTime})";
 
             default:
-                var valueAsString = value.ToString();
+                var valueAsString = value?.ToString() ?? string.Empty;
                 return $"\"{valueAsString}\"";
         }
     }
