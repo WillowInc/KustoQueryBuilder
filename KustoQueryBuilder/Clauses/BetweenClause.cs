@@ -7,24 +7,24 @@ public class BetweenClause : AbstractClause
     public string RightRange { get; }
     public bool Not { get; }
 
-    public BetweenClause(string column, string fromValue, string toValue, bool not = false)
+    public BetweenClause(string column, string leftRange, string rightRange, bool not = false)
     {
         if (string.IsNullOrEmpty(column))
         {
             throw new ArgumentNullException(nameof(column));
         }
 
-        if (string.IsNullOrEmpty(fromValue))
+        if (string.IsNullOrEmpty(leftRange))
         {
-            throw new ArgumentNullException(nameof(fromValue));
+            throw new ArgumentNullException(nameof(leftRange));
         }
 
-        ArgumentNullException.ThrowIfNull(fromValue);
-        ArgumentNullException.ThrowIfNull(toValue);
+        ArgumentNullException.ThrowIfNull(leftRange);
+        ArgumentNullException.ThrowIfNull(rightRange);
 
         Column = column;
-        RightRange = fromValue;
-        LeftRange = toValue;
+        LeftRange = leftRange;
+        RightRange = rightRange;
         Not = not;
     }
 }

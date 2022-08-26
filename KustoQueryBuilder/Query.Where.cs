@@ -15,15 +15,15 @@ public partial class Query
 
         return this;
     }
-    public Query WhereBetween(string column, string fromValue, string toValue)
+    public Query WhereBetween(string column, string leftRange, string rightRange)
     {
-        _clauses.Add(new BetweenClause(column, fromValue, toValue));
+        _clauses.Add(new BetweenClause(column, leftRange, rightRange));
 
         return this;
     }
-    public Query WhereNotBetween(string column, string fromValue, string toValue)
+    public Query WhereNotBetween(string column, string leftRange, string rightRange)
     {
-        _clauses.Add(new BetweenClause(column, fromValue, toValue, true));
+        _clauses.Add(new BetweenClause(column, leftRange, rightRange, true));
 
         return this;
     }    
