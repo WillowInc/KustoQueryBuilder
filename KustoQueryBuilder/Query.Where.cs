@@ -27,4 +27,11 @@ public partial class Query
 
         return this;
     }    
+
+    public Query WhereIn(string column, List<string> values)
+    {
+        _clauses.Add(new InClause(column, values));
+
+        return this;
+    }
 }
