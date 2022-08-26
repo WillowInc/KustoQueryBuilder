@@ -1,8 +1,8 @@
 ﻿namespace KustoQueryBuilder.Clauses;
 
-internal class SortCondition : AbstractClause
+internal class SortClause : AbstractClause
 {
-    public SortCondition(bool isDescending, string[] sortColums)
+    public SortClause(bool isDescending, string[] sortColums)
     {
         IsDescending = isDescending;
         SortColums = sortColums;

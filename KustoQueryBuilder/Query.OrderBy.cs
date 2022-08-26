@@ -14,7 +14,7 @@ public partial class Query
         {
             throw new ArgumentException("You must supply at least one sort parameter.");
         }
-        _clauses.Add(new SortCondition(isDescending, sortParameters));
+        _clauses.Add(new SortClause(isDescending, sortParameters));
         return this;
     }
 }
