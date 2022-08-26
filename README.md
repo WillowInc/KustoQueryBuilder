@@ -1,4 +1,4 @@
-[![.NET](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml)
+[![.GitHub CI](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml)
 
 # Kusto Query Builder
 
