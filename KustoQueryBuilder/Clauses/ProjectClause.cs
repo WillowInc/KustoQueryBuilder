@@ -2,25 +2,15 @@
 
 public class ProjectClause : AbstractClause
 {
-    public string[] Columns { get; }
-}
+    public IEnumerable<string> Columns { get; }
 
-public class InClause : AbstractClause
-{
-    public string Column { get; }
-    public List<string> Values { get; }
-}
+    public ProjectClause(IEnumerable<string> columns)
+    {
+        if (!columns.Any())
+        {
+            throw new ArgumentException("columns is required", nameof(columns));
+        }
 
-public class BetweenClause : AbstractClause
-{
-    public string Column { get; }
-    public DateTime LeftRange { get; }
-    public DateTime RightRange { get; }
-}
-
-public class NotBetweenClause : AbstractClause
-{
-    public string Column { get; }
-    public DateTime LeftRange { get; }
-    public DateTime RightRange { get; }
+        Columns = columns;
+    }
 }
