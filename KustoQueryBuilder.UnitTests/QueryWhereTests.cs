@@ -9,7 +9,7 @@ public class QueryWhereTests
             .WhereBetween("Column1", new DateTime(2021, 1, 1), new DateTime(2022, 1, 1));
 
         var actualQuery = q.Compile();
-        var expectedQuery = "Table1\n | where Column1 between (datetime(2021-01-01T00:00:00+00:00) .. datetime(2022-01-01T00:00:00+00:00))";
+        var expectedQuery = "Table1\n | where Column1 between (datetime(2021-01-01T00:00:00) .. datetime(2022-01-01T00:00:00))";
         
         Assert.Equal(actualQuery, expectedQuery);
     }
@@ -21,7 +21,7 @@ public class QueryWhereTests
             .WhereNotBetween("Column1", new DateTime(2021, 1, 1), new DateTime(2022, 1, 1));
 
         var actualQuery = q.Compile();
-        var expectedQuery = "Table1\n | where Column1 !between (datetime(2021-01-01T00:00:00+00:00) .. datetime(2022-01-01T00:00:00+00:00))";
+        var expectedQuery = "Table1\n | where Column1 !between (datetime(2021-01-01T00:00:00) .. datetime(2022-01-01T00:00:00))";
         
         Assert.Equal(actualQuery, expectedQuery);
     }
