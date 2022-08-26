@@ -2,9 +2,12 @@ namespace KustoQueryBuilder.UnitTests;
 
 public class QueryTests
 {
-    [Fact]
-    public void Test1()
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData(" ")]
+    public void Query_EmptyTable_ShouldThrowException(string tableName)
     {
-
+        Assert.Throws<ArgumentException>(() => new Query(tableName));
     }
 }
