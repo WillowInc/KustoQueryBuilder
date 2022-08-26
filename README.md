@@ -2,7 +2,7 @@
 
 Kusto Query Builder is a powerful query builder for the Kusto query language written in C#. It was inspired by the SqlKata project.
 
-It provides a fluent based API for building Kusto queries in code. At this point it supports the following expressions:
+It provides a fluent based API for building Kusto queries in code. Currently, it supports the following expressions:
 - Project
 - Where, including where between and where in
 - Order by ascending and descending
