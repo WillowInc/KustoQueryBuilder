@@ -1,3 +1,5 @@
+[![.NET](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml)
+
 # Kusto Query Builder
 
 Kusto Query Builder is a powerful query builder for the Kusto query language written in C#. It was inspired by the SqlKata project.
@@ -6,8 +8,6 @@ It provides a fluent based API for building Kusto queries in code. Currently, it
 - Project
 - Where, including where between and where in
 - Order by ascending and descending
-
-[![.NET](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml/badge.svg)](https://github.com/gordonc247/KustoQueryBuilder/actions/workflows/dotnet.yml)
 
 ## Examples
 
