@@ -43,6 +43,10 @@ public partial class Query
                 AppendSortClause(sortClause);
                 break;
 
+            case SantaClause:
+                Console.WriteLine("Ho ho ho");
+                break;
+
             default:
                 throw new NotImplementedException();
         }
