@@ -3,28 +3,28 @@
 public class BetweenCondition : AbstractClause
 {
     public string Column { get; }
-    public string FromValue { get; }
-    public string ToValue { get; }
+    public DateTime FromDate { get; }
+    public DateTime ToDate { get; }
     public bool Not { get; }
 
-    public BetweenCondition(string column, string fromValue, string toValue, bool not = false)
+    public BetweenCondition(string column, DateTime fromDate, DateTime toDate, bool not = false)
     {
         if (string.IsNullOrEmpty(column))
         {
             throw new ArgumentNullException(nameof(column));
         }
 
-        if (string.IsNullOrEmpty(fromValue))
+        ArgumentNullException.ThrowIfNull(fromDate);
+        ArgumentNullException.ThrowIfNull(toDate);
+
+        if (fromDate > toDate)
         {
-            throw new ArgumentNullException(nameof(fromValue));
+            throw new ArgumentException("From date cannot be before To date");
         }
 
-        ArgumentNullException.ThrowIfNull(fromValue);
-        ArgumentNullException.ThrowIfNull(toValue);
-
         Column = column;
-        FromValue = fromValue;
-        ToValue = toValue;
+        FromDate = fromDate;
+        ToDate = toDate;
         Not = not;
     }
 }
