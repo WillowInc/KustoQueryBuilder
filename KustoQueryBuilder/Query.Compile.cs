@@ -55,7 +55,7 @@ public partial class Query
     //todo enable specifying sort order for each column
     private void AppendSortClause(SortClause sortClause)
     {
-        Append($"order by {string.Join(", ", sortClause.SortColums.Select(s => s + (sortClause.IsDescending ? " desc" : " asc")))}");
+        Append($"order by {string.Join(", ", sortClause.SortColums.Select(s => s + (sortClause.IsDescending ? " desc" : string.Empty)))}");
     }
 
     private void AppendBetweenClause(BetweenClause betweenClause)
