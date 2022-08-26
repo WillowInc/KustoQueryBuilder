@@ -55,7 +55,7 @@ public partial class Query
     //todo enable specifying sort order for each column
     private void AppendSortClause(SortClause sortClause)
     {
-        Append($"order by {string.Join(", ", sortClause.SortColums + (sortClause.IsDescending ? "desc" : "asc"))}");
+        Append($"order by {string.Join(", ", sortClause.SortColums.Select(s => s + (sortClause.IsDescending ? " desc" : " asc")))}");
     }
 
     private void AppendBetweenClause(BetweenClause betweenClause)
@@ -72,7 +72,7 @@ public partial class Query
 
     private void AppendInClause(InClause inClause)
     {
-        Append($"where {inClause.Column} in ({string.Join(", ", FormatValue(inClause.Values))})");
+        Append($"where {inClause.Column} in ({string.Join(", ", inClause.Values.Select(v => FormatValue(v)))})");
     }
 
     private void AppendProjectClause(ProjectClause projectClause)
@@ -103,7 +103,7 @@ public partial class Query
                 return $"\"{stringValue}\"";
 
             case DateTime dateTime:
-                return $"datetime({dateTime})";
+                return $"datetime({dateTime:s})";
 
             default:
                 var valueAsString = value?.ToString() ?? string.Empty;
