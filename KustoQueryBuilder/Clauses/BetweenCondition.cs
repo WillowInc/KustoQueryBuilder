@@ -1,30 +1,30 @@
 ﻿namespace KustoQueryBuilder.Clauses;
 
-public class BetweenCondition : AbstractClause
+public class BetweenClause : AbstractClause
 {
     public string Column { get; }
-    public DateTime FromDate { get; }
-    public DateTime ToDate { get; }
+    public DateTime LeftRange { get; }
+    public DateTime RightRange { get; }
     public bool Not { get; }
 
-    public BetweenCondition(string column, DateTime fromDate, DateTime toDate, bool not = false)
+    public BetweenClause(string column, DateTime fromValue, DateTime toValue, bool not = false)
     {
         if (string.IsNullOrEmpty(column))
         {
             throw new ArgumentNullException(nameof(column));
         }
 
-        ArgumentNullException.ThrowIfNull(fromDate);
-        ArgumentNullException.ThrowIfNull(toDate);
+        ArgumentNullException.ThrowIfNull(fromValue);
+        ArgumentNullException.ThrowIfNull(toValue);
 
-        if (fromDate > toDate)
+        if (fromValue > toValue)
         {
-            throw new ArgumentException("From date cannot be before To date");
+            throw new ArgumentException("From date should be before To date");
         }
 
         Column = column;
-        FromDate = fromDate;
-        ToDate = toDate;
+        RightRange = fromValue;
+        LeftRange = toValue;
         Not = not;
     }
 }
