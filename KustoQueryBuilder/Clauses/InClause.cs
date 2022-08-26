@@ -4,8 +4,8 @@
     public class InClause : AbstractClause
     {
         public string Column { get; }
-        public List<string> Values { get; }
-        public InClause(string column, List<string> values)
+        public IEnumerable<string> Values { get; }
+        public InClause(string column, IEnumerable<string> values)
         {
             if (string.IsNullOrEmpty(column))
             {

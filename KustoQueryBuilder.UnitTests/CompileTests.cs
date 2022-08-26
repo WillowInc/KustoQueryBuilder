@@ -1,5 +1,6 @@
 ﻿using AutoFixture;
 using FluentAssertions;
+using FluentAssertions.Common;
 
 namespace KustoQueryBuilder.UnitTests;
 public class CompileTests
@@ -25,7 +26,7 @@ public class CompileTests
 
         var compiledQuery = query.Compile();
 
-        compiledQuery.Should().Be("table\n | where column1 = \"value 1\"");
+        compiledQuery.Should().Be("table\n | where column1 == \"value 1\"");
     }
 
     [Fact]
@@ -43,22 +44,26 @@ public class CompileTests
     public void CompilesWhereBetween()
     {
         Query query = new("table");
-        query.WhereBetween("column1", "value 1", "value 2");
+        var leftRange = new DateTime(2000, 1, 1);
+        var rightRange = new DateTime(2001, 2, 2);
+        query.WhereBetween("column1", leftRange, rightRange);
 
         var compiledQuery = query.Compile();
 
-        compiledQuery.Should().Be("table\n | where column1 between (\"value 1\" .. \"value 2\")");
+        compiledQuery.Should().Be("table\n | where column1 between (datetime(2000-01-01T00:00:00) .. datetime(2001-02-02T00:00:00))");
     }
 
     [Fact]
     public void CompilesWhereNotBetween()
     {
         Query query = new("table");
-        query.WhereNotBetween("column1", "value 1", "value 2");
+        var leftRange = new DateTime(2000, 1, 1);
+        var rightRange = new DateTime(2001, 2, 2);
+        query.WhereNotBetween("column1", leftRange, rightRange);
 
         var compiledQuery = query.Compile();
 
-        compiledQuery.Should().Be("table\n | where column1 !between (\"value 1\" .. \"value 2\")");
+        compiledQuery.Should().Be("table\n | where column1 !between (datetime(2000-01-01T00:00:00) .. datetime(2001-02-02T00:00:00))");
     }
 
     [Fact]

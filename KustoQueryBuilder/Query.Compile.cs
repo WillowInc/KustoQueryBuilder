@@ -43,6 +43,10 @@ public partial class Query
                 AppendSortClause(sortClause);
                 break;
 
+            case SantaClause:
+                Console.WriteLine("Ho ho ho");
+                break;
+
             default:
                 throw new NotImplementedException();
         }
@@ -99,7 +103,7 @@ public partial class Query
                 return $"\"{stringValue}\"";
 
             case DateTime dateTime:
-                return $"datetime({dateTime})";
+                return $"datetime({dateTime.ToString("yyyy-MM-ddTHH:mm:ssK")})";
 
             default:
                 var valueAsString = value?.ToString() ?? string.Empty;

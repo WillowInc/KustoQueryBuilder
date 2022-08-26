@@ -15,20 +15,20 @@ public partial class Query
 
         return this;
     }
-    public Query WhereBetween(string column, string leftRange, string rightRange)
+    public Query WhereBetween(string column, DateTime leftRange, DateTime rightRange)
     {
         _clauses.Add(new BetweenClause(column, leftRange, rightRange));
 
         return this;
     }
-    public Query WhereNotBetween(string column, string leftRange, string rightRange)
+    public Query WhereNotBetween(string column, DateTime leftRange, DateTime rightRange)
     {
         _clauses.Add(new BetweenClause(column, leftRange, rightRange, true));
 
         return this;
     }    
 
-    public Query WhereIn(string column, List<string> values)
+    public Query WhereIn(string column, IEnumerable<string> values)
     {
         _clauses.Add(new InClause(column, values));
 
