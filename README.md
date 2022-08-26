@@ -51,6 +51,12 @@ var qry = new Query("Table").WhereIn("Col1", new[] { "A", "B", "C" });
 var qry = new Query("Table").WhereBetween("Col1", new DateTime(2022, 1, 1), new DateTime(2022, 6, 30));
 ```
 
+### Where not between two date values
+
+```cs
+var qry = new Query("Table").WhereNotBetween("Col1", new DateTime(2022, 1, 1), new DateTime(2022, 6, 30));
+```
+
 ### Order by ascending
 
 ```cs
