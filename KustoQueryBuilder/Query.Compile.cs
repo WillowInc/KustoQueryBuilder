@@ -103,7 +103,7 @@ public partial class Query
                 return $"\"{stringValue}\"";
 
             case DateTime dateTime:
-                return $"datetime({dateTime.ToString("yyyy-MM-ddTHH:mm:ssK")})";
+                return $"datetime({dateTime:s})";
 
             default:
                 var valueAsString = value?.ToString() ?? string.Empty;

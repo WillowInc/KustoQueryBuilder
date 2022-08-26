@@ -41,6 +41,7 @@ public class CompileTests
     }
 
     [Fact]
+    //todo: add tests for different timezones
     public void CompilesWhereBetween()
     {
         Query query = new("table");
