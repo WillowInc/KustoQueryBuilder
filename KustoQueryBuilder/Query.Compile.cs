@@ -50,17 +50,17 @@ public partial class Query
 
     private void AppendNotBetweenClause(NotBetweenClause notBetweenClause)
     {
-        Append($"where {notBetweenClause.Column} !between ({notBetweenClause.LeftRange} .. {notBetweenClause.RightRange})");
+        Append($"where {notBetweenClause.Column} !between ({FormatValue(notBetweenClause.LeftRange)} .. {FormatValue(notBetweenClause.RightRange)})");
     }
 
     private void AppendBetweenClause(BetweenClause betweenClause)
     {
-        Append($"where {betweenClause.Column} between ({betweenClause.LeftRange} .. {betweenClause.RightRange})");
+        Append($"where {betweenClause.Column} between ({FormatValue(betweenClause.LeftRange)} .. {FormatValue(betweenClause.RightRange)})");
     }
 
     private void AppendInClause(InClause inClause)
     {
-        Append($"where {inClause.Column} in ({string.Join(", ", inClause.Values)})");
+        Append($"where {inClause.Column} in ({string.Join(", ", FormatValue(inClause.Values))})");
     }
 
     private void AppendProjectClause(ProjectClause projectClause)
@@ -70,7 +70,7 @@ public partial class Query
 
     private void AppendWhereClause(WhereClause whereClause)
     {
-        Append($"where {whereClause.Column} {whereClause.Operator} {whereClause.Value}");
+        Append($"where {whereClause.Column} {whereClause.Operator} {FormatValue(whereClause.Value)}");
     }
 
     private void Append(string section, bool addLeadingPipe = true)
@@ -81,5 +81,21 @@ public partial class Query
         }
 
         _queryBuilder.Append(section);
+    }
+
+    private static string FormatValue<T>(T value)
+    {
+        switch (value)
+        {
+            case string stringValue:
+                return $"\"{stringValue}\"";
+
+            case DateTime dateTime:
+                return $"datetime({dateTime})";
+
+            default:
+                var valueAsString = value.ToString();
+                return $"\"{valueAsString}\"";
+        }
     }
 }

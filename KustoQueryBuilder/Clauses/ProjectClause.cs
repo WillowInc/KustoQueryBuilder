@@ -14,13 +14,13 @@ public class InClause : AbstractClause
 public class BetweenClause : AbstractClause
 {
     public string Column { get; }
-    public string LeftRange { get; }
-    public string RightRange { get; }
+    public DateTime LeftRange { get; }
+    public DateTime RightRange { get; }
 }
 
 public class NotBetweenClause : AbstractClause
 {
     public string Column { get; }
-    public string LeftRange { get; }
-    public string RightRange { get; }
+    public DateTime LeftRange { get; }
+    public DateTime RightRange { get; }
 }
