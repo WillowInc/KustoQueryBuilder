@@ -15,13 +15,13 @@ public partial class Query
 
         return this;
     }
-    public Query WhereBetween(string column, string fromValue, string toValue)
+    public Query WhereBetween(string column, DateTime fromValue, DateTime toValue)
     {
         _clauses.Add(new BetweenClause(column, fromValue, toValue));
 
         return this;
     }
-    public Query WhereNotBetween(string column, string fromValue, string toValue)
+    public Query WhereNotBetween(string column, DateTime fromValue, DateTime toValue)
     {
         _clauses.Add(new BetweenClause(column, fromValue, toValue, true));
 
