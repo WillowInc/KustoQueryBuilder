@@ -8,4 +8,5 @@ public static class Operator
     public const string LessThan = "<";
     public const string GreaterThan = ">";
     public const string GreaterThanEqual = ">=";
+    public const string Has = "has";
 }

@@ -43,6 +43,10 @@ public partial class Query
                 AppendSortClause(sortClause);
                 break;
 
+            case HasClause hasClause:
+                AppendHasClause(hasClause);
+                break;
+
             case SantaClause:
                 Console.WriteLine("Ho ho ho");
                 break;
@@ -83,6 +87,11 @@ public partial class Query
     private void AppendWhereClause(WhereClause whereClause)
     {
         Append($"where {whereClause.Column} {whereClause.Operator} {FormatValue(whereClause.Value)}");
+    }
+
+    private void AppendHasClause(HasClause hasClause)
+    {
+        Append($"where {hasClause.Column} has({FormatValue(hasClause.Value)})");
     }
 
     private void Append(string section, bool addLeadingPipe = true)
