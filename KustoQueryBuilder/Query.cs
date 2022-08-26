@@ -10,10 +10,9 @@ public partial class Query
     {
         if (string.IsNullOrWhiteSpace(tableName))
         {
-            throw new ArgumentException("tableName parameter cannot be empty", nameof(tableName));
+            throw new ArgumentException("tableName is required", nameof(tableName));
         }
 
         TableName = tableName;
     }
-
 }

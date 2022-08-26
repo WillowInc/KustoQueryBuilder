@@ -4,7 +4,6 @@ namespace KustoQueryBuilder;
 
 public partial class Query
 {
-
     public Query Where(string column, string value)
     {
         return Where(column, Operator.EqualTo, value);
