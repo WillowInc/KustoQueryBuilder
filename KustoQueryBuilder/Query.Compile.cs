@@ -72,7 +72,14 @@ public partial class Query
 
     private void AppendInClause(InClause inClause)
     {
-        Append($"where {inClause.Column} in ({string.Join(", ", inClause.Values.Select(v => FormatValue(v)))})");
+        if (inClause.Not)
+        {
+            Append($"where {inClause.Column} !in ({ string.Join(", ", inClause.Values.Select(v => FormatValue(v)))})");
+        }
+        else
+        {
+            Append($"where {inClause.Column} in ({string.Join(", ", inClause.Values.Select(v => FormatValue(v)))})");
+        }
     }
 
     private void AppendProjectClause(ProjectClause projectClause)

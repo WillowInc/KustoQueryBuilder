@@ -34,4 +34,12 @@ public partial class Query
 
         return this;
     }
+
+    public Query WhereNotIn(string column, IEnumerable<string> values, bool not)
+    {
+        
+        _clauses.Add(new InClause(column, values, not));
+       
+        return this;
+    }
 }
