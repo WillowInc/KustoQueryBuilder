@@ -47,6 +47,11 @@ var qry = new Query("Table").Where("Col1", "!=", "ABC");
 var qry = new Query("Table").WhereIn("Col1", new[] { "A", "B", "C" });
 ```
 
+### Where not in a list of values
+```cs
+var qry = new Query("Table").WhereNotIn("Col1", new[] { "A", "B", "C" });
+```
+
 ### Where between two date values
 
 ```cs
