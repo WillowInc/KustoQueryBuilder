@@ -65,12 +65,6 @@ var qry = new Query("Table").WhereNotBetween("Col1", new DateTime(2022, 1, 1), n
 var qry = new Query("Table").WhereHas("Col1", "ABC");
 ```
 
-### Where
-
-```cs
-var qry = new Query("Table").WhereHas("Col1", "ABC");
-```
-
 ### Order by ascending
 
 ```cs
