@@ -25,4 +25,28 @@ public class QueryWhereTests
         
         Assert.Equal(actualQuery, expectedQuery);
     }
+
+    [Fact]
+    public void Query_WhereIn_ShouldBeValid()
+    {
+        var actualQuery = new Query("Table1")
+            .WhereIn("Col1", new[] { "A", "B", "C" })
+            .Compile();
+
+        var expectedQuery = "Table1\n" + @" | where Col1 in (""A"", ""B"", ""C"")";
+
+        Assert.Equal(expectedQuery, actualQuery);
+    }
+
+    [Fact]
+    public void Query_WhereNotIn_ShouldBeValid()
+    {
+        var actualQuery = new Query("Table1")
+            .WhereNotIn("Col1", new[] { "A", "B", "C" }, true)
+            .Compile();
+
+        var expectedQuery = "Table1\n" + @" | where Col1 !in (""A"", ""B"", ""C"")";
+
+        Assert.Equal(expectedQuery, actualQuery);
+    }
 }

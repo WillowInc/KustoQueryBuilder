@@ -5,7 +5,12 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KustoQueryBuilder", "KustoQueryBuilder\KustoQueryBuilder.csproj", "{F3F90E6C-7EA3-4151-B02E-5D2AC305991A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KustoQueryBuilder.UnitTests", "KustoQueryBuilder.UnitTests\KustoQueryBuilder.UnitTests.csproj", "{91B63287-AEB0-4B86-BDA4-D41E8991A26C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KustoQueryBuilder.UnitTests", "KustoQueryBuilder.UnitTests\KustoQueryBuilder.UnitTests.csproj", "{91B63287-AEB0-4B86-BDA4-D41E8991A26C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{039AAA31-AACC-449C-9164-9CBD038140BA}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

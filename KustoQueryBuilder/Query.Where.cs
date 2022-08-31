@@ -35,10 +35,17 @@ public partial class Query
         return this;
     }
 
+    public Query WhereNotIn(string column, IEnumerable<string> values, bool not)
+    { 
+        _clauses.Add(new InClause(column, values, not));
+       
+        return this;
+    }
+    
     public Query WhereHas(string column, string value)
     {
         _clauses.Add(new HasClause(column, value));
-
+        
         return this;
     }
 }
