@@ -68,6 +68,17 @@ public class CompileTests
     }
 
     [Fact]
+    public void CompilesWhereHas()
+    {
+        Query query = new("table");
+        query.WhereHas("column1", "test");
+
+        var compiledQuery = query.Compile();
+
+        compiledQuery.Should().Be("table\n | where column1 has(\"test\")");
+    }
+
+    [Fact]
     public void CompilesProject()
     {
         Query query = new("table");
