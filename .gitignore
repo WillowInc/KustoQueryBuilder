@@ -351,3 +351,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Claude Code per-user settings: "don't ask again" stores approved commands verbatim, secrets included
+**/.claude/settings.local.json
